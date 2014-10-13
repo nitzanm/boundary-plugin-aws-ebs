@@ -1,0 +1,40 @@
+{
+    "description": "Monitors AWS Elastic Block Stores",
+    "command": "python -u ebs_plugin.py",
+    "icon" : "icon.png",
+    "metrics" : [
+		"AWS_EBS_VOLUME_READ_BYTES",
+		"AWS_EBS_VOLUME_WRITE_BYTES",
+		"AWS_EBS_VOLUME_READ_OPS",
+		"AWS_EBS_VOLUME_WRITE_OPS",
+		"AWS_EBS_VOLUME_TOTAL_READ_TIME",
+		"AWS_EBS_VOLUME_TOTAL_WRITE_TIME",
+		"AWS_EBS_VOLUME_IDLE_TIME",
+		"AWS_EBS_VOLUME_QUEUE_LENGTH",
+		"AWS_EBS_VOLUME_THROUGHPUT_PERCENTAGE",
+		"AWS_EBS_VOLUME_CONSUMED_READ_WRITE_OPS"],
+
+    "dashboards" : [{"name" : "AWS EBS",
+        "layout" : 
+"d-w=4&d-h=4&d-pad=5&d-bg=none&d-g-AWS_EBS_VOLUME_READ_BYTES=0-0-2-2-t&d-g-AWS_EBS_VOLUME_WRITE_BYTES=0-0-2-2-b&d-g-AWS_EBS_VOLUME_READ_OPS=0-2-2-2-t&d-g-AWS_EBS_VOLUME_WRITE_OPS=0-2-2-2-b&d-g-AWS_EBS_VOLUME_CONSUMED_READ_WRITE_OPS=2-0-1-1&d-g-AWS_EBS_VOLUME_IDLE_TIME=3-0-1-1&d-g-AWS_EBS_VOLUME_QUEUE_LENGTH=2-1-1-1&d-g-AWS_EBS_VOLUME_TOTAL_READ_TIME=3-1-1-1&d-g-AWS_EBS_VOLUME_THROUGHPUT_PERCENTAGE=2-2-1-1&d-g-AWS_EBS_VOLUME_TOTAL_WRITE_TIME=3-2-1-1" }],
+
+    "paramSchema": [
+        {
+            "title": "AWS Access Key Id",
+            "name": "access_key_id",
+            "description": "Access Key for AWS",
+            "type": "string",
+            "default": "",
+            "required": true
+        },
+        {
+            "title": "AWS Secret Key",
+            "name": "secret_key",
+            "description": "Secret Key for AWS",
+            "type": "string",
+            "default": "",
+            "required": true
+        }
+    ]
+}
+
