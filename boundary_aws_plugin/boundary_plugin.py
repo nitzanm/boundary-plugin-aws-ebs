@@ -9,6 +9,8 @@ from contextlib import contextmanager
 import sys
 import os
 
+__version__ = '1.1.0'
+
 HOSTNAME = socket.gethostname()
 
 metric_log_file = None

@@ -34,7 +34,7 @@ class EbsCloudwatchMetrics(CloudwatchMetrics):
             ('VolumeTotalWriteTime', 'Sum', 'AWS_EBS_VOLUME_TOTAL_WRITE_TIME'),
             ('VolumeIdleTime', 'Sum', 'AWS_EBS_VOLUME_IDLE_TIME'),
             ('VolumeQueueLength', 'Sum', 'AWS_EBS_VOLUME_QUEUE_LENGTH'),
-            ('VolumeThroughputPercentage', 'Sum', 'AWS_EBS_VOLUME_THROUGHPUT_PERCENTAGE'),
+            ('VolumeThroughputPercentage', 'Sum', 'AWS_EBS_VOLUME_THROUGHPUT_PERCENTAGE', 0.01),
             ('VolumeConsumedReadWriteOps', 'Sum', 'AWS_EBS_VOLUME_CONSUMED_READ_WRITE_OPS'),
         )
 
@@ -46,4 +46,3 @@ if __name__ == '__main__':
 
     plugin = CloudwatchPlugin(EbsCloudwatchMetrics, '', 'boundary-plugin-aws-ebs-python-status')
     plugin.main()
-

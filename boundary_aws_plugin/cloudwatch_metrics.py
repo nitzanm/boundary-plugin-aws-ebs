@@ -5,6 +5,8 @@ import datetime
 import logging
 import abc
 
+__version__ = '1.1.0'
+
 
 class CloudwatchMetrics(object):
     __metaclass__ = abc.ABCMeta
@@ -126,6 +128,7 @@ class CloudwatchMetrics(object):
 
                 for metric in self.get_metric_list():
                     metric_name, metric_statistic, metric_boundary_id = metric[:3]
+                    metric_scale = metric[3] if len(metric) > 3 else 1
                     logger.info("\t\tMetric: %s %s %s" % (metric_name, metric_statistic, metric_boundary_id))
                     
                     data = []
@@ -148,6 +151,7 @@ class CloudwatchMetrics(object):
 
                     out_metric = []
                     for sample in data:
+                        sample[metric_statistic] *= metric_scale
                         logger.info("\t\t\tValue: %s: %s" % (sample['Timestamp'], sample[metric_statistic]))
                         out_metric.append((sample['Timestamp'], sample[metric_statistic], metric_statistic))
                     out[(region.name, self.get_entity_source_name(entity), metric_boundary_id)] = out_metric

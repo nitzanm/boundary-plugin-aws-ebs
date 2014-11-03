@@ -6,6 +6,8 @@ import time
 from . import boundary_plugin
 from . import status_store
 
+__version__ = '1.1.0'
+
 """
 If getting statistics from CloudWatch fails, we will retry up to this number of times before
 giving up and aborting the plugin.  Use 0 for unlimited retries.
